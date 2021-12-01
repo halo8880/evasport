@@ -17,6 +17,12 @@
     .input {
         display: flex;
     }
+
+    .part.right {
+        display: flex;
+        flex-basis: 60%;
+        justify-content: space-between;
+    }
 </style>
 <body class="body">
 <div class="part">
@@ -24,27 +30,35 @@
         <div class="input">
             <div>
     <textarea
-            cols="50" rows="50"
+            cols="20" rows="50"
             name="downloadedData"
-            placeholder="downloadedData"
+            placeholder="2 Cột MVĐ, SKU sản phẩm tải từ báo cáo shopee"
     ></textarea>
             </div>
             <div>
         <textarea
-                cols="50" rows="50"
+                cols="20" rows="50"
                 name="packedOrders"
-                placeholder="packedOrders"
+                placeholder="MVĐ đã gói"
         ></textarea>
                 <button type="submit">Submit</button>
             </div>
         </div>
     </form>
 </div>
-<div class="part">
-    <textarea th:text="${listSKUsA}"></textarea>
-    <textarea th:text="${listSKUsQ}"></textarea>
-    <textarea th:text="${listSKUsNotFound}"></textarea>
-    <textarea th:text="${unfoundTrackingNumbers}"></textarea>
+<div class="part right">
+    <div>
+        <label>SKU Áo</label></label><textarea th:text="${listSKUsA}" rows="50"></textarea>
+    </div>
+    <div>
+        <label>SKU Quần</label><textarea th:text="${listSKUsQ}" rows="50"></textarea>
+    </div>
+    <div>
+        <label>SKU Không Tìm Thấy, Tự Điền Bằng Tay</label><textarea th:text="${listSKUsNotFound}"
+                                                                     rows="50"></textarea>
+    </div>
+    <div><label>MVĐ Chưa Xử Lí</label><textarea th:text="${unfoundTrackingNumbers}" rows="50"></textarea>
+    </div>
 
 </div>
 </body>
